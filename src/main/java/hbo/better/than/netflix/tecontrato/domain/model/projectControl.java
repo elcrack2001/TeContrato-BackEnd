@@ -48,6 +48,7 @@ public class projectControl extends AuditModel {
     @OnDelete(action = OnDeleteAction.CASCADE)
     private status status;
 
+    //Relacion muchos a muchos
     @ManyToMany(fetch = FetchType.LAZY,
             cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     @JoinTable(name ="ControlEmployees",
@@ -70,6 +71,7 @@ public class projectControl extends AuditModel {
         Qprogress = qprogress;
     }
 
+    //Funciones para el ControlEmployees
     public boolean isTaggedWith(employees tag) {
         return this.getEmployees().contains(tag);
     }
