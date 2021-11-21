@@ -38,29 +38,29 @@ public class taksProjectControl {
         return this;
     }
 
-    public hbo.better.than.netflix.tecontrato.domain.model.projectControl getProjectControl() {
+    public projectControl getProjectControl() {
         return projectControl;
     }
 
-    public taksProjectControl setProjectControl(hbo.better.than.netflix.tecontrato.domain.model.projectControl projectControl) {
+    public taksProjectControl setProjectControl(projectControl projectControl) {
         this.projectControl = projectControl;
         return this;
     }
 
-    public hbo.better.than.netflix.tecontrato.domain.model.employees getEmployees() {
+    public employees getEmployees() {
         return employees;
     }
 
-    public taksProjectControl setEmployees(hbo.better.than.netflix.tecontrato.domain.model.employees employees) {
+    public taksProjectControl setEmployees(employees employees) {
         this.employees = employees;
         return this;
     }
 
-    public hbo.better.than.netflix.tecontrato.domain.model.task getTask() {
+    public task getTask() {
         return task;
     }
 
-    public taksProjectControl setTask(hbo.better.than.netflix.tecontrato.domain.model.task task) {
+    public taksProjectControl setTask(task task) {
         this.task = task;
         return this;
     }
