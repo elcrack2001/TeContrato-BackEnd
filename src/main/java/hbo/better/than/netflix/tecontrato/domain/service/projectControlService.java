@@ -8,7 +8,7 @@ import org.springframework.http.ResponseEntity;
 public interface projectControlService {
     Page<projectControl> getAllprojectControl(Pageable pageable);
     projectControl getprojectControlById(Integer projectControlId);
-    projectControl createprojectControl(Integer projectId, projectControl projectControl);
+    projectControl createprojectControl(Integer projectId, Integer statusId, projectControl projectControl);
     projectControl updateprojectControl(Integer projectControlId, projectControl projectControlRequest);
     ResponseEntity<?> deleteprojectControl(Integer projectControl);
 

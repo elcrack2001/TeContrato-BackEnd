@@ -5,6 +5,7 @@ import hbo.better.than.netflix.tecontrato.domain.model.projectControl;
 import hbo.better.than.netflix.tecontrato.domain.repository.employeesRepository;
 import hbo.better.than.netflix.tecontrato.domain.repository.projectControlRepository;
 import hbo.better.than.netflix.tecontrato.domain.repository.projectRepository;
+import hbo.better.than.netflix.tecontrato.domain.repository.statusRepository;
 import hbo.better.than.netflix.tecontrato.domain.service.projectControlService;
 import hbo.better.than.netflix.tecontrato.exception.ResourceNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,6 +26,9 @@ public class projectControlmpl implements projectControlService {
     private projectRepository projectRepository;
 
     @Autowired
+    private statusRepository statusRepository;
+
+    @Autowired
     private employeesRepository employeesRepository;
     
     @Override
@@ -39,9 +43,13 @@ public class projectControlmpl implements projectControlService {
     }
 
     @Override
-    public projectControl createprojectControl(Integer projectId, projectControl projectControl) {
+    public projectControl createprojectControl(Integer projectId, Integer statusId, projectControl projectControl) {
         return projectRepository.findById(projectId).map(project -> {
             projectControl.setProject(project);
+            statusRepository.findById(statusId).map(status -> {
+                projectControl.setStatus(status);
+                return projectControlRepository.save(projectControl);
+            }).orElseThrow(() -> new ResourceNotFoundException("status Id" + statusId));
             return projectControlRepository.save(projectControl);
         }).orElseThrow(() -> new ResourceNotFoundException("project Id" + projectId));
     }

@@ -38,10 +38,24 @@ public class projectControl extends AuditModel {
     @NotNull
     private Integer Qprogress;
 
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @OneToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "fk_project_id", nullable = false)
     @OnDelete(action = OnDeleteAction.CASCADE)
     private project project;
+
+    public status getStatus() {
+        return status;
+    }
+
+    public projectControl setStatus(status status) {
+        this.status = status;
+        return this;
+    }
+
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "fk_status_id", nullable = false)
+    @OnDelete(action = OnDeleteAction.CASCADE)
+    private status status;
 
     public List<employees> getEmployees() {
         return employees;
