@@ -43,28 +43,10 @@ public class projectControl extends AuditModel {
     @OnDelete(action = OnDeleteAction.CASCADE)
     private project project;
 
-    public status getStatus() {
-        return status;
-    }
-
-    public projectControl setStatus(status status) {
-        this.status = status;
-        return this;
-    }
-
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "fk_status_id", nullable = false)
     @OnDelete(action = OnDeleteAction.CASCADE)
     private status status;
-
-    public List<employees> getEmployees() {
-        return employees;
-    }
-
-    public projectControl setEmployees(List<employees> employees) {
-        this.employees = employees;
-        return this;
-    }
 
     @ManyToMany(fetch = FetchType.LAZY,
             cascade = {CascadeType.PERSIST, CascadeType.MERGE})
@@ -183,6 +165,24 @@ public class projectControl extends AuditModel {
 
     public projectControl setQprogress(Integer qprogress) {
         Qprogress = qprogress;
+        return this;
+    }
+
+    public status getStatus() {
+        return status;
+    }
+
+    public projectControl setStatus(status status) {
+        this.status = status;
+        return this;
+    }
+
+    public List<employees> getEmployees() {
+        return employees;
+    }
+
+    public projectControl setEmployees(List<employees> employees) {
+        this.employees = employees;
         return this;
     }
 }

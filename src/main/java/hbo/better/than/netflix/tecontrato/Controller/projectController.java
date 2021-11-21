@@ -45,13 +45,14 @@ public class projectController {
     }
 
     @Operation(tags={"projects"})
-    @PostMapping("/client/{clientid}/contractor/{contractorid}/projects")
+    @PostMapping("/client/{clientid}/contractor/{contractorid}/budget/{budgetid}/projects")
     public projectResource createproject(
             @PathVariable Integer clientid,
             @PathVariable Integer contractorid,
+            @PathVariable Integer budgetid,
             @Valid @RequestBody saveProjectResource resource) {
         project project = convertToEntity(resource);
-        return convertToResource(projectService.createproject(clientid,contractorid, project));
+        return convertToResource(projectService.createproject(clientid,contractorid,budgetid,project));
     }
 
     @Operation(tags={"projects"})

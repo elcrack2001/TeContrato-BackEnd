@@ -8,7 +8,7 @@ import org.springframework.http.ResponseEntity;
 public interface projectService {
     Page<project> getAllproject(Pageable pageable);
     project getprojectById(Integer projectId);
-    project createproject(Integer clientId, Integer contractorId, project project);
+    project createproject(Integer clientId, Integer contractorId, Integer budgetId ,project project);
     project updateproject(Integer projectId, project projectRequest);
     ResponseEntity<?> deleteproject(Integer project);
 }

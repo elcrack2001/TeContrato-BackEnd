@@ -1,6 +1,7 @@
 package hbo.better.than.netflix.tecontrato.service;
 
 import hbo.better.than.netflix.tecontrato.domain.model.project;
+import hbo.better.than.netflix.tecontrato.domain.repository.budgetRepository;
 import hbo.better.than.netflix.tecontrato.domain.repository.clientRepository;
 import hbo.better.than.netflix.tecontrato.domain.repository.contractorRepository;
 import hbo.better.than.netflix.tecontrato.domain.repository.projectRepository;
@@ -23,6 +24,9 @@ public class projectImpl implements projectService {
 
     @Autowired
     private contractorRepository contractorRepository;
+
+    @Autowired
+    private budgetRepository  budgetRepository;
     
     @Override
     public Page<project> getAllproject(Pageable pageable) {
@@ -36,11 +40,15 @@ public class projectImpl implements projectService {
     }
 
     @Override
-    public project createproject(Integer clientId, Integer contractorId, project project) {
+    public project createproject(Integer clientId, Integer contractorId, Integer budgetId ,project project) {
         return clientRepository.findById(clientId).map(client -> {
             project.setClient(client);
             contractorRepository.findById(contractorId).map(contractor -> {
                 project.setContractor(contractor);
+                budgetRepository.findById(budgetId).map(budget -> {
+                    project.setBudget(budget);
+                    return projectRepository.save(project);
+                }).orElseThrow(() -> new ResourceNotFoundException("budget Id" + budgetId));
                 return projectRepository.save(project);
             }).orElseThrow(() -> new ResourceNotFoundException("contractor Id" + contractorId));
             return projectRepository.save(project);

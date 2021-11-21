@@ -42,6 +42,11 @@ public class project extends AuditModel{
     @OnDelete(action = OnDeleteAction.CASCADE)
     private contractor contractor;
 
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "fk_budget_id", nullable = false)
+    @OnDelete(action = OnDeleteAction.CASCADE)
+    private budget budget;
+
     public project() {
     }
 
@@ -125,6 +130,15 @@ public class project extends AuditModel{
 
     public project setMbudget(Integer mbudget) {
         Mbudget = mbudget;
+        return this;
+    }
+
+    public budget getBudget() {
+        return budget;
+    }
+
+    public project setBudget(budget budget) {
+        this.budget = budget;
         return this;
     }
 }
