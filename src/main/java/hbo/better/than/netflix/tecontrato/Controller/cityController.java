@@ -61,7 +61,7 @@ public class cityController {
 
     @Operation(tags={"citys"})
     @DeleteMapping("/citys/{cityId}")
-    public ResponseEntity<?> deleteCompany(
+    public ResponseEntity<?> deleteCity(
             @PathVariable Integer cityId) {
         return cityService.deletecity(cityId);
     }

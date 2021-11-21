@@ -63,7 +63,7 @@ public class clientController {
 
     @Operation(tags={"clients"})
     @DeleteMapping("/clients/{clientId}")
-    public ResponseEntity<?> deleteCompany(
+    public ResponseEntity<?> deleteClient(
             @PathVariable Integer clientId) {
         return clientService.deleteclient(clientId);
     }

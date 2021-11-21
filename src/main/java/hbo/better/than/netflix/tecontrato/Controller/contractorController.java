@@ -61,7 +61,7 @@ public class contractorController {
 
     @Operation(tags={"contractors"})
     @DeleteMapping("/contractors/{contractorId}")
-    public ResponseEntity<?> deleteCompany(
+    public ResponseEntity<?> deleteContractor(
             @PathVariable Integer contractorId) {
         return contractorService.deleteContractor(contractorId);
     }

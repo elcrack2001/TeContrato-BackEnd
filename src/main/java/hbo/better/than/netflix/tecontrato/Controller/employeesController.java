@@ -62,7 +62,7 @@ public class employeesController {
 
     @Operation(tags={"employeess"})
     @DeleteMapping("/employeess/{employeesId}")
-    public ResponseEntity<?> deleteCompany(
+    public ResponseEntity<?> deleteEmployees(
             @PathVariable Integer employeesId) {
         return employeesService.deleteemployees(employeesId);
     }

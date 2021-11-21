@@ -60,7 +60,7 @@ public class budgetController {
 
     @Operation(tags={"budgets"})
     @DeleteMapping("/budgets/{budgetId}")
-    public ResponseEntity<?> deleteCompany(
+    public ResponseEntity<?> deleteBudget(
             @PathVariable Integer budgetId) {
         return budgetService.deletebudget(budgetId);
     }

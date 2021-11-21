@@ -62,7 +62,7 @@ public class postsController {
 
     @Operation(tags={"posts"})
     @DeleteMapping("/posts/{postsId}")
-    public ResponseEntity<?> deleteCompany(
+    public ResponseEntity<?> deletePosts(
             @PathVariable Integer postsId) {
         return postsService.deleteposts(postsId);
     }

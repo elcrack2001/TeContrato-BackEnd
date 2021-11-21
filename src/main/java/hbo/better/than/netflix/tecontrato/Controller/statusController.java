@@ -60,7 +60,7 @@ public class statusController {
 
     @Operation(tags={"status"})
     @DeleteMapping("/status/{statusId}")
-    public ResponseEntity<?> deleteCompany(
+    public ResponseEntity<?> deleteStatus(
             @PathVariable Integer statusId) {
         return statusService.deletestatus(statusId);
     }

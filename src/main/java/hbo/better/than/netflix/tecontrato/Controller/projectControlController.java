@@ -64,7 +64,7 @@ public class projectControlController {
 
     @Operation(tags={"projectControls"})
     @DeleteMapping("/projectControls/{projectControlId}")
-    public ResponseEntity<?> deleteCompany(
+    public ResponseEntity<?> deleteProjectControl(
             @PathVariable Integer projectControlId) {
         return projectControlService.deleteprojectControl(projectControlId);
     }

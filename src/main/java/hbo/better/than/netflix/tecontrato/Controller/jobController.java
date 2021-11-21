@@ -60,7 +60,7 @@ public class jobController {
 
     @Operation(tags={"jobs"})
     @DeleteMapping("/jobs/{jobId}")
-    public ResponseEntity<?> deleteCompany(
+    public ResponseEntity<?> deleteJob(
             @PathVariable Integer jobId) {
         return jobService.deletejob(jobId);
     }
