@@ -66,7 +66,6 @@ public class cityController {
         return cityService.deletecity(cityId);
     }
 
-
     private city convertToEntity(saveCityResource resource) {
         return mapper.map(resource, city.class);
     }
